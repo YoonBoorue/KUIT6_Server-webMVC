@@ -13,10 +13,10 @@ public class CreateUserController implements Controller {
     @Override
     public String handle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String userId   = req.getParameter("userId");
+        String userId = req.getParameter("userId");
         String password = req.getParameter("password");
-        String name     = req.getParameter("name");
-        String email    = req.getParameter("email");
+        String name = req.getParameter("name");
+        String email = req.getParameter("email");
 
         if (userId == null || userId.trim().isEmpty() ||
                 password == null || password.trim().isEmpty() ||

@@ -18,21 +18,21 @@ public class DispatcherServlet extends HttpServlet {
     private static final String VIEW_SUFFIX = ".jsp";
 
     @Override
-    public void init(){
-        mapper.put("/",              new HomeController());
-        mapper.put("/user/login",    new LoginController());
-        mapper.put("/user/logout",   new LogoutController());
-        mapper.put("/user/signup",   new CreateUserController());
-        mapper.put("/user/update",   new UpdateUserController());
+    public void init() {
+        mapper.put("/", new HomeController());
+        mapper.put("/user/login", new LoginController());
+        mapper.put("/user/logout", new LogoutController());
+        mapper.put("/user/signup", new CreateUserController());
+        mapper.put("/user/update", new UpdateUserController());
         mapper.put("/user/updateForm", new UpdateUserFormController());
-        mapper.put("/user/list",     new ListUserController());
+        mapper.put("/user/list", new ListUserController());
     }
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        String ctx  = req.getContextPath();
+        String ctx = req.getContextPath();
         String path = req.getRequestURI().substring(ctx.length());
         if (path.isEmpty()) path = "/";
         if (path.startsWith("/css/") || path.startsWith("/js/") || path.startsWith("/images/")) {
@@ -58,7 +58,7 @@ public class DispatcherServlet extends HttpServlet {
             if (view.startsWith("redirect:")) {
                 resp.sendRedirect(ctx + view.substring("redirect:".length()));
             } else {
-                // 논리 뷰 이름("home", "user/list") → /WEB-INF/views/***.jsp
+                // 논리 뷰 이름("home", "user/list") → /user/***.jsp
                 String logical = view.startsWith("/") ? view : ("/" + view);
                 String jsp = VIEW_PREFIX + logical + VIEW_SUFFIX;
                 req.getRequestDispatcher(jsp).forward(req, resp);

@@ -17,7 +17,7 @@ public class UpdateUserController implements Controller {
         req.setCharacterEncoding("UTF-8");
 
         HttpSession session = req.getSession(false);
-        User currentUser = (session != null) ? (User)session.getAttribute("user") : null;
+        User currentUser = (session != null) ? (User) session.getAttribute("user") : null;
         if (currentUser == null) {
             return "redirect:/";
         }
