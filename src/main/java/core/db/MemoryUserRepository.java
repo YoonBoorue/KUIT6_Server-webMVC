@@ -38,4 +38,6 @@ public class MemoryUserRepository {
             users.put(user.getUserId(), user);
         }
     }
+
+    public void clear() {users.clear();}
 }

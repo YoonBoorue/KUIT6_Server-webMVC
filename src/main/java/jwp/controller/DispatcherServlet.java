@@ -14,7 +14,7 @@ import java.util.Map;
 @WebServlet("/")
 public class DispatcherServlet extends HttpServlet {
     private final Map<String, Controller> mapper = new HashMap<>();
-    private static final String VIEW_PREFIX = "";
+    private static final String VIEW_PREFIX = ""; //별도로 존재하지 않음.
     private static final String VIEW_SUFFIX = ".jsp";
 
     @Override
@@ -42,7 +42,7 @@ public class DispatcherServlet extends HttpServlet {
 
         Controller controller = mapper.get(path);
         if (controller == null) {
-            String jsp = VIEW_PREFIX + path + VIEW_SUFFIX; // 예: /WEB-INF + /user/loginFailed + .jsp
+            String jsp = VIEW_PREFIX + path + VIEW_SUFFIX;
             if (getServletContext().getResource(jsp) == null) {
                 resp.sendError(HttpServletResponse.SC_NOT_FOUND);
                 return;
