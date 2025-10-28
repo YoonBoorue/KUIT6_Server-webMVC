@@ -2,6 +2,7 @@ package jwp.controller.controllers;
 
 import core.db.MemoryUserRepository;
 import jwp.controller.Controller;
+import jwp.dao.UserDao;
 import jwp.model.User;
 
 import javax.servlet.ServletException;
@@ -27,13 +28,14 @@ public class CreateUserController implements Controller {
             return "redirect:/user/form"; // 실패 시 form으로,
         }
 
-        MemoryUserRepository repo = MemoryUserRepository.getInstance();
-        if (repo.findUserById(userId.trim()) != null) {
+        UserDao userDao = new UserDao();
+
+        if (userDao.findByUserId(userId) != null) {
             req.setAttribute("errorMessage", "이미 사용 중인 ID입니다.");
             return "redirect:/user/form"; // 실패 시 form으로,
         }
         User user = new User(userId.trim(), password.trim(), name.trim(), email.trim());
-        repo.addUser(user);
+        userDao.inset(user);
 
         return "redirect:/";
     }

@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd5f0177-f8e7-4262-875a-ec0103b5d5f0" name="변경" comment="1. Controller 인터페이스 생성 및 api 요구에 대한 각각의 Controller 생성&#10;2. DispatcherServlet 생성 후 맵핑">
-      <change afterPath="$PROJECT_DIR$/src/test/java/jwp/controller/CreateUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/jwp/controller/ListUserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+    <list default="true" id="dd5f0177-f8e7-4262-875a-ec0103b5d5f0" name="변경" comment="1. 코드 정돈">
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/JdbcTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/PreparedStatementSetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/RowMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java-webMVC.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java-webMVC.iws" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/db/MemoryUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/db/MemoryUserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/DispatcherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/DispatcherServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/CreateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/ListUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/ListUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/UpdateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/support/context/ContextLoaderListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/support/context/ContextLoaderListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,32 +139,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.소스 다운로드.executor": "Run",
-    "JUnit.CreateUserControllerTest.duplicate_overwrites.executor": "Run",
-    "JUnit.CreateUserControllerTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "YoonBoorue__webMVC",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "프로젝트",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true",
-    "애플리케이션.WebServerLauncher.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.소스 다운로드.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateUserControllerTest.duplicate_overwrites.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateUserControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;YoonBoorue__webMVC&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;애플리케이션.WebServerLauncher.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="P:\KUIT_SERVER\KUIT6_Server-webMVC\webapp\WEB-INF" />
@@ -310,7 +314,18 @@
       <workItem from="1759822126126" duration="10823000" />
       <workItem from="1759853680796" duration="1111000" />
       <workItem from="1759905261696" duration="424000" />
-      <workItem from="1759995438856" duration="2298000" />
+      <workItem from="1759995438856" duration="2636000" />
+      <workItem from="1760013668744" duration="6080000" />
+      <workItem from="1760103478368" duration="1345000" />
+      <workItem from="1760322090146" duration="1000" />
+      <workItem from="1760322193831" duration="21000" />
+      <workItem from="1760330187393" duration="50000" />
+      <workItem from="1760361097147" duration="4000" />
+      <workItem from="1760612951170" duration="2000" />
+      <workItem from="1760949998251" duration="2000" />
+      <workItem from="1760968892520" duration="3000" />
+      <workItem from="1761121046902" duration="15000" />
+      <workItem from="1761630530526" duration="5207000" />
     </task>
     <task id="LOCAL-00001" summary="1. Controller 인터페이스 생성 및 api 요구에 대한 각각의 Controller 생성&#10;2. DispatcherServlet 생성 후 맵핑">
       <option name="closed" value="true" />
@@ -328,7 +343,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759848858194</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1. CreateUserController 예외처리 제작&#10;2. CreateUserControllerTest 생성&#10;3. Test위해 build.gradle 부분수정">
+      <option name="closed" value="true" />
+      <created>1759997986692</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759997986692</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1. 코드 정돈">
+      <option name="closed" value="true" />
+      <created>1760017572541</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760017572541</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +367,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1. Controller 인터페이스 생성 및 api 요구에 대한 각각의 Controller 생성&#10;2. DispatcherServlet 생성 후 맵핑" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Controller 인터페이스 생성 및 api 요구에 대한 각각의 Controller 생성&#10;2. DispatcherServlet 생성 후 맵핑" />
+    <MESSAGE value="1. CreateUserController 예외처리 제작&#10;2. CreateUserControllerTest 생성&#10;3. Test위해 build.gradle 부분수정" />
+    <MESSAGE value="1. 코드 정돈" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. 코드 정돈" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

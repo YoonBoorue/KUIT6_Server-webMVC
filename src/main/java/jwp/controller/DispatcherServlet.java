@@ -34,12 +34,15 @@ public class DispatcherServlet extends HttpServlet {
 
         String ctx = req.getContextPath();
         String path = req.getRequestURI().substring(ctx.length());
+
+        //정적 쳐내기
         if (path.isEmpty()) path = "/";
         if (path.startsWith("/css/") || path.startsWith("/js/") || path.startsWith("/images/")) {
             req.getRequestDispatcher(path).forward(req, resp);
             return;
         }
 
+        //문제 있으면 쳐내기
         Controller controller = mapper.get(path);
         if (controller == null) {
             String jsp = VIEW_PREFIX + path + VIEW_SUFFIX;
@@ -60,8 +63,8 @@ public class DispatcherServlet extends HttpServlet {
             } else {
                 // 논리 뷰 이름("home", "user/list") → /user/***.jsp
                 String logical = view.startsWith("/") ? view : ("/" + view);
-                String jsp = VIEW_PREFIX + logical + VIEW_SUFFIX;
-                req.getRequestDispatcher(jsp).forward(req, resp);
+                String fullPath = VIEW_PREFIX + logical + VIEW_SUFFIX;
+                req.getRequestDispatcher(fullPath).forward(req, resp);
             }
         } catch (Exception e) {
             throw new ServletException(e);

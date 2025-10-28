@@ -2,6 +2,7 @@ package jwp.controller.controllers;
 
 import core.db.MemoryUserRepository;
 import jwp.controller.Controller;
+import jwp.dao.UserDao;
 import jwp.model.User;
 
 import javax.servlet.ServletException;
@@ -19,7 +20,8 @@ public class LoginController implements Controller {
         String userId = req.getParameter("userId");
         String password = req.getParameter("password");
 
-        User user = MemoryUserRepository.getInstance().findUserById(userId);
+        UserDao userDao = new UserDao();
+        User user = userDao.findByUserId(userId);
         if (user == null || !user.getPassword().equals(password)) {
             req.setAttribute("loginError", "아이디 또는 비밀번호가 잘못되었습니다.");
             return "redirect:/user/loginFailed";

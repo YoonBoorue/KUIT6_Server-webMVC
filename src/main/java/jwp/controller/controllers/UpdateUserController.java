@@ -2,6 +2,7 @@ package jwp.controller.controllers;
 
 import core.db.MemoryUserRepository;
 import jwp.controller.Controller;
+import jwp.dao.UserDao;
 import jwp.model.User;
 
 import javax.servlet.ServletException;
@@ -28,7 +29,8 @@ public class UpdateUserController implements Controller {
 
         User updatedUser = new User(currentUser.getUserId(), password, name, email);
 
-        MemoryUserRepository.getInstance().changeUserInfo(updatedUser);
+        UserDao userDao = new UserDao();
+        userDao.update(updatedUser);
         session.setAttribute("user", updatedUser);
 
         return "redirect:/user/list";
