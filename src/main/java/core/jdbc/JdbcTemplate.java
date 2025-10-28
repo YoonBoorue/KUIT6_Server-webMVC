@@ -1,7 +1,5 @@
 package core.jdbc;
 
-import jwp.model.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +13,7 @@ public class JdbcTemplate<T> {
     public void update(String sql, PreparedStatementSetter pstmtSetter){
 
         try (Connection conn = ConnectionManager.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmtSetter.setParameters(pstmt);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -28,7 +26,7 @@ public class JdbcTemplate<T> {
 
         try (Connection conn = ConnectionManager.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery();) {
+             ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
                 T object = rowMapper.mapRow(rs);
@@ -44,8 +42,9 @@ public class JdbcTemplate<T> {
         ResultSet rs = null;
         T object = null;
 
+
         try (Connection conn = ConnectionManager.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmtSetter.setParameters(pstmt); //강의에는 없으나, 미사용 인자라 추가. 추후에 삭제해야 할수도?
             rs = pstmt.executeQuery();
             if (rs.next()) {

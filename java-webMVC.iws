@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd5f0177-f8e7-4262-875a-ec0103b5d5f0" name="변경" comment="1. 코드 정돈">
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/JdbcTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/PreparedStatementSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/RowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-webMVC.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-webMVC.iws" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/DispatcherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/DispatcherServlet.java" afterDir="false" />
+    <list default="true" id="dd5f0177-f8e7-4262-875a-ec0103b5d5f0" name="변경" comment="1. 강의따라서 라이브 코딩&#10;2. MemoryUserRepository -&gt; UserDao로 변경(테스트는 아직 미변경)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/jdbc/JdbcTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/JdbcTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/jdbc/RowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/RowMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/CreateUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/ListUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/ListUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/controllers/UpdateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/support/context/ContextLoaderListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/support/context/ContextLoaderListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,7 +320,7 @@
       <workItem from="1760949998251" duration="2000" />
       <workItem from="1760968892520" duration="3000" />
       <workItem from="1761121046902" duration="15000" />
-      <workItem from="1761630530526" duration="5207000" />
+      <workItem from="1761630530526" duration="5610000" />
     </task>
     <task id="LOCAL-00001" summary="1. Controller 인터페이스 생성 및 api 요구에 대한 각각의 Controller 생성&#10;2. DispatcherServlet 생성 후 맵핑">
       <option name="closed" value="true" />
@@ -359,7 +354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760017572541</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1. 강의따라서 라이브 코딩&#10;2. MemoryUserRepository -&gt; UserDao로 변경(테스트는 아직 미변경)">
+      <option name="closed" value="true" />
+      <created>1761636045197</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761636045197</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +372,8 @@
     <MESSAGE value="1. Controller 인터페이스 생성 및 api 요구에 대한 각각의 Controller 생성&#10;2. DispatcherServlet 생성 후 맵핑" />
     <MESSAGE value="1. CreateUserController 예외처리 제작&#10;2. CreateUserControllerTest 생성&#10;3. Test위해 build.gradle 부분수정" />
     <MESSAGE value="1. 코드 정돈" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. 코드 정돈" />
+    <MESSAGE value="1. 강의따라서 라이브 코딩&#10;2. MemoryUserRepository -&gt; UserDao로 변경(테스트는 아직 미변경)" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. 강의따라서 라이브 코딩&#10;2. MemoryUserRepository -&gt; UserDao로 변경(테스트는 아직 미변경)" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

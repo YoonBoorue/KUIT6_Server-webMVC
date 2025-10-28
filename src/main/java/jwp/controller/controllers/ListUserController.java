@@ -1,6 +1,5 @@
 package jwp.controller.controllers;
 
-import core.db.MemoryUserRepository;
 import jwp.controller.Controller;
 import jwp.dao.UserDao;
 import jwp.model.User;

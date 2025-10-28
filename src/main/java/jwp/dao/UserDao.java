@@ -5,12 +5,10 @@ import core.jdbc.PreparedStatementSetter;
 import core.jdbc.RowMapper;
 import jwp.model.User;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class UserDao {
-    //TODO insert,update,delete
-    private final JdbcTemplate<User> jdbcTemplate = new JdbcTemplate();
+    private final JdbcTemplate<User> jdbcTemplate = new JdbcTemplate<User>();
 
     public void inset(User user){
 
@@ -45,7 +43,6 @@ public class UserDao {
         jdbcTemplate.update(sql,pss);
     }
 
-    //TODO findAll, findByUseId
     public List<User> findAll(){
 
         String sql = "SELECT * FROM USERS";
