@@ -1,6 +1,8 @@
 package jwp.controller;
 
-import jwp.controller.controllers.*;
+import jwp.controller.questionControllers.CreateQuestionFormController;
+import jwp.controller.questionControllers.ShowController;
+import jwp.controller.userControllers.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +28,9 @@ public class DispatcherServlet extends HttpServlet {
         mapper.put("/user/update", new UpdateUserController());
         mapper.put("/user/updateForm", new UpdateUserFormController());
         mapper.put("/user/list", new ListUserController());
+        mapper.put("/qna/create", new CreateQuestionFormController());
+        mapper.put("/qna/show", new ShowController());
+        //ListQuestion추가
     }
 
     @Override
@@ -42,6 +47,13 @@ public class DispatcherServlet extends HttpServlet {
             return;
         }
 
+        if (path.endsWith(".html")) {
+            String cleaned = path.substring(0, path.length() - ".html".length());
+            resp.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
+            resp.setHeader("Location", ctx + (cleaned.isEmpty() ? "/" : cleaned));
+            return;
+        }
+
         //문제 있으면 쳐내기
         Controller controller = mapper.get(path);
         if (controller == null) {
@@ -55,7 +67,7 @@ public class DispatcherServlet extends HttpServlet {
         }
 
         try {
-            String view = controller.handle(req, resp);
+            String view = controller.execute(req, resp);
             if (view == null) return; // 컨트롤러가 직접 응답을 끝낸 경우
 
             if (view.startsWith("redirect:")) {

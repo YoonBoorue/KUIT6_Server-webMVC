@@ -1,7 +1,7 @@
 package jwp.controller;
 
 import core.db.MemoryUserRepository;
-import jwp.controller.controllers.CreateUserController;
+import jwp.controller.userControllers.CreateUserController;
 import jwp.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -41,8 +41,8 @@ class CreateUserControllerTest {
 
     @Test
     @DisplayName("정상 입력이면 저장되고 redirect:/ 반환")
-    void handle_success_persists_and_redirects_root() throws ServletException, IOException {
-        String view = controller.handle(req, resp);
+    void execute_success_persists_and_redirects_root() throws ServletException, IOException {
+        String view = controller.execute(req, resp);
 
         assertThat(view).isEqualTo("redirect:/");
         User saved = repo.findUserById("testUser");
@@ -64,7 +64,7 @@ class CreateUserControllerTest {
             when(req.getParameter("name")).thenReturn(null);
             when(req.getParameter("userId")).thenReturn("u-null-name");
 
-            String view = controller.handle(req, resp);
+            String view = controller.execute(req, resp);
 
             assertThat(view).isEqualTo("redirect:/user/form");
             assertThat(repo.findUserById("u-null-name")).isNull();
@@ -77,7 +77,7 @@ class CreateUserControllerTest {
             when(req.getParameter("email")).thenReturn("");
             when(req.getParameter("userId")).thenReturn("u-empty-email");
 
-            String view = controller.handle(req, resp);
+            String view = controller.execute(req, resp);
 
             assertThat(view).isEqualTo("redirect:/user/form");
             assertThat(repo.findUserById("u-empty-email")).isNull();
@@ -90,7 +90,7 @@ class CreateUserControllerTest {
             when(req.getParameter("userId")).thenReturn("  ");
             when(req.getParameter("name")).thenReturn("공백유저");
 
-            String view = controller.handle(req, resp);
+            String view = controller.execute(req, resp);
 
             assertThat(view).isEqualTo("redirect:/user/form");
             assertThat(repo.findUserById("  ")).isNull();
@@ -102,7 +102,7 @@ class CreateUserControllerTest {
     @DisplayName("중복 userId → redirect:/user/form, 기존 데이터 보존(덮어쓰기 금지)")
     void duplicate_does_not_overwrite_and_redirects_form() throws ServletException, IOException {
         // 1차: 정상 생성
-        String first = controller.handle(req, resp);
+        String first = controller.execute(req, resp);
         assertThat(first).isEqualTo("redirect:/");
         User original = repo.findUserById("testUser");
         assertThat(original).isNotNull();
@@ -112,7 +112,7 @@ class CreateUserControllerTest {
         when(req.getParameter("name")).thenReturn("변경유저");
         when(req.getParameter("email")).thenReturn("changed@example.com");
 
-        String second = controller.handle(req, resp);
+        String second = controller.execute(req, resp);
 
         assertThat(second).isEqualTo("redirect:/user/form");
         User kept = repo.findUserById("testUser");

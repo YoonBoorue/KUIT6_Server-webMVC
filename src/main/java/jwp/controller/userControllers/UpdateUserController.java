@@ -1,4 +1,4 @@
-package jwp.controller.controllers;
+package jwp.controller.userControllers;
 
 import jwp.controller.Controller;
 import jwp.dao.UserDao;
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class UpdateUserController implements Controller {
     @Override
-    public String handle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("UTF-8");
 

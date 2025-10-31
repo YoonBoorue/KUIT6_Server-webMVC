@@ -1,4 +1,4 @@
-package jwp.controller.controllers;
+package jwp.controller.userControllers;
 
 import jwp.controller.Controller;
 import jwp.dao.UserDao;
@@ -13,7 +13,7 @@ import java.util.Collection;
 public class ListUserController implements Controller {
 
     @Override
-    public String handle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDao userDao = new UserDao();
         Collection<User> users = userDao.findAll();
         req.setAttribute("users", users);

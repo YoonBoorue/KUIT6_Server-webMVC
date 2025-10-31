@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/user/list"})
+@WebFilter(urlPatterns = {"/user/list", "/qna/form"})
 public class UserFilter implements Filter {
 
     @Override
@@ -25,7 +25,7 @@ public class UserFilter implements Filter {
         User user = (session != null) ? (User) session.getAttribute("user") : null;
 
         if (user == null) {
-            resp.sendRedirect(req.getContextPath() + "/");
+            resp.sendRedirect(req.getContextPath() + "/user/login");
             return;
         }
         chain.doFilter(request, response);

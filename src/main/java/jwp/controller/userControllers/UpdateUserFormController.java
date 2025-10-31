@@ -1,4 +1,4 @@
-package jwp.controller.controllers;
+package jwp.controller.userControllers;
 
 import jwp.controller.Controller;
 import jwp.model.User;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class UpdateUserFormController implements Controller {
     @Override
-    public String handle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession(false);
         User user = (session != null) ? (User) session.getAttribute("user") : null;

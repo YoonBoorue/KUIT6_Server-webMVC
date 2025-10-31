@@ -1,4 +1,4 @@
-package jwp.controller.controllers;
+package jwp.controller.userControllers;
 
 import jwp.controller.Controller;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class LogoutController implements Controller {
-    public String handle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         if (session != null) session.removeAttribute("user");
 
