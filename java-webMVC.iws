@@ -4,10 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd5f0177-f8e7-4262-875a-ec0103b5d5f0" name="변경" comment="1. Create기능까지 구현&#10;2. QuestionDao 싱글턴화&#10;3. 여러 버그 수정">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/ForwardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-webMVC.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.ipr" afterDir="false" />
+    <list default="true" id="dd5f0177-f8e7-4262-875a-ec0103b5d5f0" name="변경" comment="fork">
       <change beforePath="$PROJECT_DIR$/java-webMVC.iws" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/db/MemoryUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/db/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/CreateQuestionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/CreateQuestionFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/CreateUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/DispatcherServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/ForwardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/ListUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UpdateQuestionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UpdateQuestionFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UpdateUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UpdateUserFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/questionControllers/CreateQuestionFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/questionControllers/ListQuestionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/questionControllers/ShowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userControllers/CreateUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userControllers/ListUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userControllers/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userControllers/LogoutController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userControllers/UpdateUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userControllers/UpdateUserFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/filter/UserFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/holder/KeyHolder.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +239,7 @@
       <module name="org.example.java-webMVC.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jwp.controller.*" />
+          <option name="PATTERN" value="jwp.controller.userController.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -238,7 +260,7 @@
       <module name="org.example.java-webMVC.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jwp.controller.*" />
+          <option name="PATTERN" value="jwp.controller.userController.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -337,6 +359,7 @@
       <workItem from="1762325813147" duration="719000" />
       <workItem from="1762338145144" duration="1444000" />
       <workItem from="1762408920283" duration="508000" />
+      <workItem from="1762409450621" duration="329000" />
     </task>
     <task id="LOCAL-00001" summary="1. Controller 인터페이스 생성 및 api 요구에 대한 각각의 Controller 생성&#10;2. DispatcherServlet 생성 후 맵핑">
       <option name="closed" value="true" />
@@ -394,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761909394532</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fork">
+      <option name="closed" value="true" />
+      <created>1762409491619</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1762409491619</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +438,8 @@
     <MESSAGE value="1. 강의따라서 라이브 코딩&#10;2. MemoryUserRepository -&gt; UserDao로 변경(테스트는 아직 미변경)" />
     <MESSAGE value="1. 강의따라서 라이브 코딩&#10;2. MemoryUserRepository -&gt; UserDao로 변경(테스트는 아직 미변경)&#10;3. 경고 관련 수정" />
     <MESSAGE value="1. Create기능까지 구현&#10;2. QuestionDao 싱글턴화&#10;3. 여러 버그 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Create기능까지 구현&#10;2. QuestionDao 싱글턴화&#10;3. 여러 버그 수정" />
+    <MESSAGE value="fork" />
+    <option name="LAST_COMMIT_MESSAGE" value="fork" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
