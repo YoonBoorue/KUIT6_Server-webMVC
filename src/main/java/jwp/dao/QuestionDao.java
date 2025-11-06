@@ -1,83 +1,77 @@
 package jwp.dao;
 
 import core.jdbc.JdbcTemplate;
+import core.jdbc.KeyHolder;
 import core.jdbc.PreparedStatementSetter;
 import core.jdbc.RowMapper;
-import jwp.holder.KeyHolder;
 import jwp.model.Question;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class QuestionDao {
-    private static final QuestionDao instance = new QuestionDao();
+
     private final JdbcTemplate<Question> jdbcTemplate = new JdbcTemplate<>();
 
-    private QuestionDao() {}
-
-    public static QuestionDao getInstance() {
-        return instance;
-    }
-
-    public Question insert(Question question){
+    public Question insert(Question question) throws SQLException {
         KeyHolder keyHolder = new KeyHolder();
-        String sql = "INSERT INTO QUESTIONS (writer, title, contents, createdDate) " +
-                "VALUES (?, ?, ?, CURRENT_TIMESTAMP)";
-        PreparedStatementSetter pss = pstmt -> {
-            pstmt.setString(1, question.getWriter());
-            pstmt.setString(2, question.getTitle());
-            pstmt.setString(3, question.getContents());
-        };
-        jdbcTemplate.update(sql, pss, keyHolder);
-        return findByQuestionId((long) keyHolder.getId());
-    }
-
-    public void update(Question question){
-        String sql = "UPDATE QUESTIONS SET writer =?, title =?, contents =?, createdDate =?, countOfAnswer =?, WHERE id=?";
+        String sql = "INSERT INTO QUESTIONS (writer, title, contents, createdDate) VALUES (?, ?, ?, ?)";
         PreparedStatementSetter pstmtSetter = pstmt -> {
             pstmt.setString(1, question.getWriter());
             pstmt.setString(2, question.getTitle());
             pstmt.setString(3, question.getContents());
-            pstmt.setTimestamp(4, java.sql.Timestamp.valueOf(question.getCreatedDate()));
-            pstmt.setInt(5, question.getCountOfAnswer());
-            pstmt.setLong(6, question.getQuestionId());
+            pstmt.setObject(4, question.getCreatedDate());
         };
-        jdbcTemplate.update(sql,pstmtSetter);
+        jdbcTemplate.update(sql, pstmtSetter, keyHolder);
+        return findByQuestionId(keyHolder.getId());
     }
 
-    public void delete(Question question){
 
-        String sql = "DELETE FROM QUESTIONS WHERE questionId=?";
-        PreparedStatementSetter pss = pstmt -> {
-            pstmt.setLong(1, question.getQuestionId());
-            pstmt.executeUpdate();
+    public void update(Question question) throws SQLException {
+        String sql = "UPDATE QUESTIONS SET title = ?, contents = ?, createdDate = ? WHERE questionId = ?";
+        PreparedStatementSetter pstmtSetter = pstmt -> {
+            pstmt.setString(1, question.getTitle());
+            pstmt.setString(2, question.getContents());
+            pstmt.setObject(3, question.getCreatedDate());
+            pstmt.setLong(4, question.getQuestionId());
         };
-        jdbcTemplate.update(sql,pss);
+        jdbcTemplate.update(sql, pstmtSetter);
     }
 
-    public List<Question> findAll(){
+    public void delete(int questionId) throws SQLException {
+        String sql = "DELETE FROM QUESTIONS WHERE questionId = ?";
+        PreparedStatementSetter pstmtSetter = pstmt -> {
+            pstmt.setInt(1, questionId);
+        };
+        jdbcTemplate.update(sql, pstmtSetter);
+    }
 
-        String sql = "SELECT * FROM QUESTIONS";
-        RowMapper<Question> rowMapper = rs -> new Question(rs.getLong("questionId"),
+    public List<Question> findAll() throws SQLException {
+        String sql = "SELECT * FROM QUESTIONS ORDER BY questionId";
+        RowMapper rowMapper = rs -> new Question(rs.getInt("questionId"),
                 rs.getString("writer"),
                 rs.getString("title"),
                 rs.getString("contents"),
-                rs.getTimestamp("createdDate").toLocalDateTime(),
+                rs.getDate("createdDate"),
                 rs.getInt("countOfAnswer"));
         return jdbcTemplate.query(sql, rowMapper);
     }
 
-    public Question findByQuestionId(Long questionId){
+    public Question findByQuestionId(int questionId) throws SQLException {
+        String sql = "SELECT questionId, writer, title, contents, createdDate, countOfAnswer " +
+                "FROM QUESTIONS WHERE questionId=?";
 
-        String sql = "SELECT * FROM QUESTIONS WHERE questionId=?";
         PreparedStatementSetter pstmtSetter = pstmt -> {
-            pstmt.setLong(1, questionId);
+            pstmt.setInt(1, questionId);
         };
-        RowMapper<Question> rowMapper = rs -> new Question(rs.getLong("questionId"),
+
+        RowMapper rowMapper = rs -> new Question(rs.getInt("questionId"),
                 rs.getString("writer"),
                 rs.getString("title"),
                 rs.getString("contents"),
-                rs.getTimestamp("createdDate").toLocalDateTime(),
+                rs.getDate("createdDate"),
                 rs.getInt("countOfAnswer"));
-        return  jdbcTemplate.queryForObject(sql, pstmtSetter, rowMapper).orElse(null);
+
+        return jdbcTemplate.queryForObject(sql, pstmtSetter, rowMapper);
     }
 }
