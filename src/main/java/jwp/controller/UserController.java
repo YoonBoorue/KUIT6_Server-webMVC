@@ -1,4 +1,4 @@
-package jwp.controller.userController;
+package jwp.controller;
 
 import jwp.dao.UserDao;
 import jwp.model.User;
@@ -71,7 +71,7 @@ public class UserController {
         User sessionUser = (User) session.getAttribute("user");
         User targetUser = userDao.findByUserId(userId);
 
-        if (sessionUser != null && targetUser != null && sessionUser.equals(targetUser)) {
+        if (sessionUser != null && sessionUser.equals(targetUser)) {
             model.addAttribute("user", targetUser);
             return "user/updateForm";
         }

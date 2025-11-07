@@ -4,27 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd5f0177-f8e7-4262-875a-ec0103b5d5f0" name="변경" comment="fork">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/QuestionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-webMVC.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.ipr" afterDir="false" />
+    <list default="true" id="dd5f0177-f8e7-4262-875a-ec0103b5d5f0" name="변경" comment="요구사항 처리&#10;-Controller 통합&#10;-Spring처리&#10;-기존의 DispatcherServlet이나 RowMapping, ForwardController는 어떻게 처리해야 할지가 의문점입니다.">
       <change beforePath="$PROJECT_DIR$/java-webMVC.iws" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/jdbc/JdbcTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/JdbcTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/mvc/RequestMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/mvc/RequestMapping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/CreateQuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/CreateQuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/CreateQuestionFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/CreateQuestionFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/CreateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/ListUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/ListUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/LogoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/LogoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/ShowQuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/ShowQuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UpdateQuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/UpdateQuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UpdateQuestionFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/UpdateQuestionFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/UpdateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UpdateUserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/UpdateUserFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/dao/QuestionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/mvc/DispatcherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/mvc/DispatcherServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/CreateQuestionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/CreateQuestionFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/ShowQuestionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/UpdateQuestionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/qnaController/UpdateQuestionFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/CreateUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/ListUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/LogoutController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/UpdateUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/UpdateUserFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/userController/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +233,7 @@
       <module name="org.example.java-webMVC.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jwp.controller.userController.*" />
+          <option name="PATTERN" value="jwp.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -259,7 +254,7 @@
       <module name="org.example.java-webMVC.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jwp.controller.userController.*" />
+          <option name="PATTERN" value="jwp.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -360,6 +355,8 @@
       <workItem from="1762408920283" duration="508000" />
       <workItem from="1762409450621" duration="329000" />
       <workItem from="1762409796473" duration="4818000" />
+      <workItem from="1762480966322" duration="188000" />
+      <workItem from="1762526945873" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="1. Controller 인터페이스 생성 및 api 요구에 대한 각각의 Controller 생성&#10;2. DispatcherServlet 생성 후 맵핑">
       <option name="closed" value="true" />
@@ -441,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762409824714</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="요구사항 처리&#10;-Controller 통합&#10;-Spring처리&#10;-기존의 DispatcherServlet이나 RowMapping, ForwardController는 어떻게 처리해야 할지가 의문점입니다.">
+      <option name="closed" value="true" />
+      <created>1762481049763</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1762481049763</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +460,8 @@
     <MESSAGE value="1. 강의따라서 라이브 코딩&#10;2. MemoryUserRepository -&gt; UserDao로 변경(테스트는 아직 미변경)&#10;3. 경고 관련 수정" />
     <MESSAGE value="1. Create기능까지 구현&#10;2. QuestionDao 싱글턴화&#10;3. 여러 버그 수정" />
     <MESSAGE value="fork" />
-    <option name="LAST_COMMIT_MESSAGE" value="fork" />
+    <MESSAGE value="요구사항 처리&#10;-Controller 통합&#10;-Spring처리&#10;-기존의 DispatcherServlet이나 RowMapping, ForwardController는 어떻게 처리해야 할지가 의문점입니다." />
+    <option name="LAST_COMMIT_MESSAGE" value="요구사항 처리&#10;-Controller 통합&#10;-Spring처리&#10;-기존의 DispatcherServlet이나 RowMapping, ForwardController는 어떻게 처리해야 할지가 의문점입니다." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

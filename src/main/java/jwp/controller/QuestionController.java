@@ -1,4 +1,4 @@
-package jwp.controller.qnaController;
+package jwp.controller;
 
 import jwp.dao.QuestionDao;
 import jwp.model.Question;
