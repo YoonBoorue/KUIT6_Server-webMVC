@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/form")
     public String showCreateForm() {
-        return "user/form";
+        return "redirect:/user/form";
     }
 
     @PostMapping("/create")
@@ -38,12 +38,12 @@ public class UserController {
             return "redirect:/users/loginForm";
         }
         model.addAttribute("users", userDao.findAll());
-        return "user/list";
+        return "redirect:/user/list";
     }
 
     @GetMapping("/loginForm")
     public String showLoginForm() {
-        return "user/login";
+        return "redirect:/user/login";
     }
 
     @PostMapping("/login")
@@ -73,7 +73,7 @@ public class UserController {
 
         if (sessionUser != null && sessionUser.equals(targetUser)) {
             model.addAttribute("user", targetUser);
-            return "user/updateForm";
+            return "redirect:/user/updateForm";
         }
         return "redirect:/";
     }

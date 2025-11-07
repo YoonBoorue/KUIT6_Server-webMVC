@@ -21,16 +21,14 @@ public class QuestionController {
 
     private final QuestionDao questionDao;
 
-    /** (1) 질문 작성 폼 */
     @GetMapping("/form")
     public String showCreateForm(HttpSession session) {
         if (UserSessionUtils.isLogined(session)) {
-            return "qna/form";          // /WEB-INF/jsp/qna/form.jsp 이런 식으로 매핑될 것
+            return "redirect:/qna/form";
         }
         return "redirect:/user/loginForm";
     }
 
-    /** (2) 질문 등록 */
     @PostMapping("/create")
     public String create(@RequestParam String writer,
                          @RequestParam String title,
@@ -41,16 +39,14 @@ public class QuestionController {
         return "redirect:/";
     }
 
-    /** (3) 질문 보기 */
     @GetMapping("/show")
     public String show(@RequestParam("questionId") int questionId,
                        Model model) {
         Question question = questionDao.findByQuestionId(questionId);
         model.addAttribute("question", question);
-        return "qna/show";
+        return "redirect:/qna/show";
     }
 
-    /** (4) 수정 폼 */
     @GetMapping("/updateForm")
     public String showUpdateForm(@RequestParam("questionId") int questionId,
                                  HttpSession session,
@@ -64,10 +60,9 @@ public class QuestionController {
             throw new IllegalArgumentException("수정 권한이 없습니다.");
         }
         model.addAttribute("question", question);
-        return "qna/updateForm";
+        return "redirect:/qna/updateForm";
     }
 
-    /** (5) 실제 수정 */
     @PostMapping("/update")
     public String update(@RequestParam("questionId") int questionId,
                          @RequestParam String title,
