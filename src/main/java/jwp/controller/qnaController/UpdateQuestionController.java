@@ -1,8 +1,7 @@
-package jwp.controller;
+package jwp.controller.qnaController;
 
 import core.mvc.Controller;
 import jwp.dao.QuestionDao;
-import jwp.dao.UserDao;
 import jwp.model.Question;
 import jwp.model.User;
 import jwp.util.UserSessionUtils;

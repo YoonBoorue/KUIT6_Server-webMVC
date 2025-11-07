@@ -1,4 +1,4 @@
-package jwp.controller;
+package jwp.controller.qnaController;
 
 import core.mvc.Controller;
 import jwp.util.UserSessionUtils;
